@@ -12,8 +12,9 @@ jobs:
         run: echo "eslint.yml"
 
 jobs:
-  log-message-2: 
+  log-message: 
     runs-on: ubuntu-latest
+    needs: 
     steps:
       - name: Log a message
         run: echo "Done bby!"
