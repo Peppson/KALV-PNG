@@ -4,7 +4,7 @@ on:
     branches:
       - main
 
-steps:
-  - name: Log a message
-    run: echo "This is a log message"
-
+jobs:
+  steps:
+    - name: Log a message
+      run: echo "This is a log message"
