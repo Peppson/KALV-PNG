@@ -5,6 +5,14 @@ on:
       - main
 
 jobs:
-  steps:
-    - name: Log a message
-      run: echo "This is a log message"
+  log-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log a message
+        run: echo "This is a log message"
+
+
+
+
+
+
