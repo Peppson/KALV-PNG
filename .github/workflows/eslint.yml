@@ -6,18 +6,16 @@ on:
 
 jobs:
   log-message: 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-XXG
     steps:
       - name: Log a message
         run: echo "eslint.yml"
 
-
-
-
-
-
-
-
-
+jobs:
+  log-message: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log a message
+        run: echo "Done bby!"
 
 
