@@ -1,4 +1,10 @@
 
+on:
+  push:
+    branches:
+      - main
+
 steps:
   - name: Log a message
     run: echo "This is a log message"
+
