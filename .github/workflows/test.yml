@@ -9,15 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log a message
-        run: echo "eslint.yml"
-
-
-
-
-
-
-
-
-
-
-
+        run: echo "test.yml"
