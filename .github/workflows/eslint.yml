@@ -10,13 +10,10 @@ jobs:
     steps:
       - name: Log a message
         run: echo "This is a log message"
+      
+      - name: Log 33
+        run: echo "33333"
 
-  log-message-2: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Log a message
-        run: echo "2222222222"
-  
 
 
 
