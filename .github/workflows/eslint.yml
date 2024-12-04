@@ -5,17 +5,22 @@ on:
       - main
 
 jobs:
-  log-message: 
+  JS-lint: 
     runs-on: ubuntu-latest
     steps:
       - name: Log a message
-        run: echo "eslint.yml"
+        run: echo "Init"
 
-  log-message-2: 
+  TEST: 
     runs-on: ubuntu-latest
-    needs: log-message
+    steps:
+      uses: actions/checkout@v4
+      uses: stefanoeb/eslint-action@1.0.2
+
+
+  HTML-validation: 
+    runs-on: ubuntu-latest
+    needs: JS-lint
     steps:
       - name: Log a message
-        run: echo "Done bby!"
-
-
+        run: echo "Done!"

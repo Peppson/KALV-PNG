@@ -25,3 +25,29 @@ jobs:
             
             docker rm -f my-app 
             docker run -d --name my-app -p 80:80 my-app
+
+
+
+
+
+deploy:
+    runs-on: ubuntu-latest
+    needs: [JS-lint, HTML-validation]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: SSH into VPS and deploy
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: root
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /root/temp/CanInteBan
+            
+            git pull origin main
+            docker build -t my-app .
+            
+            docker rm -f my-app 
+            docker run -d --name my-app -p 80:80 my-app
