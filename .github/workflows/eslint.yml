@@ -6,7 +6,7 @@ on:
 
 jobs:
   log-message: 
-    runs-on: ubuntu-latest-XXG
+    runs-on: ubuntu-latest
     steps:
       - name: Log a message
         run: echo "eslint.yml"
