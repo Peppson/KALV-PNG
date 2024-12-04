@@ -13,14 +13,17 @@ jobs:
 
   TEST: 
     runs-on: ubuntu-latest
+    needs: JS-lint
     steps:
-      - uses: actions/checkout@v4
-      - uses: stefanoeb/eslint-action@1.0.2
-
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run ESLint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
 
   HTML-validation: 
     runs-on: ubuntu-latest
-    needs: JS-lint
+    needs: [JS-lint, TEST]
     steps:
       - name: Log a message
         run: echo "Done!"
