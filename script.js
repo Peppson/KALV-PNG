@@ -3,4 +3,4 @@ function someFunction() {
     alert("something");
 }
 
-someFcuntion(); // error
+someFcuntion(); // error test

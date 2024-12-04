@@ -1,9 +1,11 @@
 
+# Triggers on merge into main
 on:
   push:
     branches:
       - main
 
+# 
 jobs:
   JS-lint: 
     runs-on: ubuntu-latest
@@ -11,15 +13,32 @@ jobs:
       - name: Log a message
         run: echo "Init"
 
-  TEST: 
+
+
+
+  TEST:
     runs-on: ubuntu-latest
-    needs: JS-lint
     steps:
-      - uses: actions/checkout@v2
-      - name: Install modules
-        run: yarn
-      - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12 #20
+
+      # ESLint and Prettier must be in `package.json`
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          #prettier: true
+
+
+
 
   HTML-validation: 
     runs-on: ubuntu-latest
